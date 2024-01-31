@@ -53,12 +53,17 @@ try {
 })
 
 exports.fetchChats=asyncHandler(async(req,res)=>{
- 
+//  console.log("hell")
     try {
-        const allchats=await Chat.find({users:{$elemMatch:{$eq:req.user.id}}}).populate("users","-password").populate("groupAdmin", "-password")
-        .populate("latestMessage")
+        var allchats=await Chat.find({users:{$elemMatch:{$eq:req.user.id}}}).populate("users","-password").populate("groupAdmin", "-password")
+        .populate("latestMessage").populate("latestMessage.sender")
         .sort({ updatedAt: -1 })
-
+        console.log(allchats)
+        allchats = await User.populate(allchats, {
+          path: "latestMessage.sender",
+          select: "name",
+        });
+         console.log(allchats)
         res.json(allchats)
     } catch (error) {
         res.status(400);
