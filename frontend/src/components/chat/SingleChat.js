@@ -7,7 +7,7 @@ import UpdateGroupChatModal from './components/UpdateGroupChatModal';
 import axios from 'axios';
 import ScrollableChat from './ScrollableChat';
 import { io } from 'socket.io-client';
-const ENDPOINT = "http://localhost:3002"; 
+const ENDPOINT = "https://chatmax.onrender.com"; 
 var socket, selectedChatCompare;
 
 function SingleChat({ fetchAgain, setFetchAgain }) {
