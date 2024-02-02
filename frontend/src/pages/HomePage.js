@@ -3,13 +3,16 @@ import React, { useEffect } from "react";
 import Signup from "../components/auth/Signup";
 import Login from "../components/auth/Login";
 import { useHistory, useNavigate } from "react-router-dom";
+import { ChatState } from "../context/chatContext";
 function HomePage() {
 
   // const history = useHistory();
 const navigate=useNavigate()
+
+const {setSelectedChat}=ChatState()
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-
+    setSelectedChat("")
     if (user) navigate("/chat");
   }, [navigate]);
   return (

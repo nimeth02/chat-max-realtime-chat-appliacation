@@ -49,6 +49,7 @@ function Mychats({fetchAgain}) {
       w={{ base: "100%", md: "31%" }}
       borderRadius="lg"
       borderWidth="1px"
+      overflow="scroll"
     >
       <Flex
         pb={3}
@@ -71,6 +72,7 @@ function Mychats({fetchAgain}) {
           </Button>
         </GroupChatModal>
       </Flex>
+    
       <Box
         d="flex"
         flexDir="column"
@@ -79,8 +81,6 @@ function Mychats({fetchAgain}) {
         w="100%"
         mt="15px"
         borderRadius="lg"
-        overflowY="hidden"
-    
       >
         {chats ? (
           <Stack overflowY="scroll" >
@@ -117,6 +117,7 @@ function Mychats({fetchAgain}) {
         ) : (
           <ChatLoading />
         )}
+    
       </Box>
     </Box>
   )

@@ -106,6 +106,7 @@ function GroupChatModal({children}) {
         console.log(data)
         setChats([data, ...chats]);
         onClose();
+        setGroupName("")
         toast({
           title: "New Group Chat Created!",
           status: "success",
@@ -134,7 +135,7 @@ function GroupChatModal({children}) {
   return (
     <div>
         <span onClick={onOpen}>{children}</span>
-        <Modal isOpen={isOpen} onClose={()=>{onClose();setSearchResult([]);setSelectedUsers([]);}}>
+        <Modal isOpen={isOpen} onClose={()=>{onClose();setSearchResult([]);setSelectedUsers([]);setGroupName("")}}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader b="flex" align="center" fontSize={"28px"}>Create Group</ModalHeader>

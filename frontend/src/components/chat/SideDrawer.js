@@ -133,7 +133,7 @@ function SideDrawer() {
       <Drawer
         isOpen={isOpen}
         placement='left'
-        onClose={onClose}
+        onClose={()=>{onClose();setSearchResult();setSearch()}}
         finalFocusRef={btnRef}
       >
         <DrawerOverlay />
@@ -168,7 +168,7 @@ function SideDrawer() {
           </DrawerBody>
 
           <DrawerFooter>
-            <Button variant='outline' mr={3} onClick={onClose}>
+            <Button variant='outline' mr={3} onClick={()=>{onClose();setSearchResult();setSearch()}}>
               Cancel
             </Button>
 

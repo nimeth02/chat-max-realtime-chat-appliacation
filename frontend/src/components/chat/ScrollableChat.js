@@ -7,10 +7,11 @@ function ScrollableChat({messages}) {
 
     const { user } = ChatState();
   return (
+    <>
     <ScrollableFeed>
     {messages &&
       messages.map((m, i) => (
-        <div style={{ display: "flex" ,justifyContent: m.sender._id === user._id ? "end" : "start"}} key={m._id}>
+        <div style={{ display: "flex" ,justifyContent: m.sender._id === user._id ? "end" : "start",overflow:"scroll"}} key={m._id}>
          
           
           <span
@@ -36,6 +37,7 @@ function ScrollableChat({messages}) {
         </div>
       ))}
   </ScrollableFeed>
+  </>
   )
 }
 

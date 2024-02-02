@@ -199,16 +199,10 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
                 margin="auto"
               />
             ) : (
-              <div className="messages">
-                <Box
-                  className="messages"
-                  display="flex"
-                  flexDirection="column"
-                  overflowY="scroll"
-                  // scrollbarWidth="none"
-                >
+              <div className="messages" style={{overflow:"scroll", display:"flex",flexDirection:"column",scrollbarWidth:"none"}}>
+           
                    <ScrollableChat messages={messages} />
-                </Box>
+              
                
               </div>
             )}
